@@ -5,7 +5,7 @@ function Layout({id, title, desc, urlBg, colorBg}) {
 
     return (
         <section className="root" id={id} style={styleBg}>
-            <div className={s.wrapper}>
+            <div className={s.wrapper} style={styleBg}>
                 <article>
                     <div className={s.title}>
                         <h3>${title}</h3>
