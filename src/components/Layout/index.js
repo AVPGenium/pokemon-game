@@ -1,7 +1,6 @@
 import styles from './style.module.css';
-import s from "../Header/style.module.css";
 
-function Layout({id, title, desc, urlBg, colorBg}) {
+function Layout({id, title, desc, urlBg, colorBg, children}) {
     //const styleBg = urlBg ? {backgroundImage: `url(${urlBg})`} : {background: `${colorBg}`}
     const  s = {};
     if (urlBg) {
@@ -19,7 +18,7 @@ function Layout({id, title, desc, urlBg, colorBg}) {
                         <span className={styles.separator}></span>
                     </div>
                     <div className={`${styles.desc} ${styles.full}`}>
-                        <p>{desc}</p>
+                        <p>{children}</p>
                     </div>
                 </article>
             </div>
