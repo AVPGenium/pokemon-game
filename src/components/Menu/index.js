@@ -1,15 +1,15 @@
 import s from './style.module.css';
 import cn from 'classnames'
 
+const ROUTES = [
+    {url: "#welcome", title: "HOME"},
+    {url: "#game", title: "GAME"},
+    {url: "#about", title: "ABOUT"},
+    {url: "#contact", title: "CONTACT"}
+]
 
 function Menu({isOpenMenu}) {
     const classNames = cn(s.menuContainer, {[s.active]: isOpenMenu, [s.deactive]: !isOpenMenu})
-    const ROUTES = [
-        {url: "#welcome", title: "HOME"},
-        {url: "#game", title: "GAME"},
-        {url: "#about", title: "ABOUT"},
-        {url: "#contact", title: "CONTACT"}
-    ]
     return (
         <div className={classNames}>
             <div className={s.overlay}/>
