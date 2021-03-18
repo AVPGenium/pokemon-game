@@ -1,14 +1,20 @@
+import {Link} from 'react-router-dom';
+
 import s from './style.module.css';
 import cn from 'classnames'
 
 const ROUTES = [
-    {url: "#welcome", title: "HOME"},
-    {url: "#game", title: "GAME"},
-    {url: "#about", title: "ABOUT"},
-    {url: "#contact", title: "CONTACT"}
+    {url: "/", title: "HOME"},
+    {url: "/game", title: "GAME"},
+    {url: "/about", title: "ABOUT"},
+    {url: "/contact", title: "CONTACT"}
 ]
 
-function Menu({isOpenMenu}) {
+function Menu({isOpenMenu, onToggleMenu}) {
+    const handleClick = () => {
+        onToggleMenu(!isOpenMenu)
+    }
+
     const classNames = cn(s.menuContainer, {[s.active]: isOpenMenu, [s.deactive]: !isOpenMenu})
     return (
         <div className={classNames}>
@@ -17,10 +23,10 @@ function Menu({isOpenMenu}) {
                 <ul>
                     {
                         ROUTES.map((item, index) =>
-                            <li key={index}>
-                                <a href={item.url}>
+                            <li key={index} onClick={handleClick}>
+                                <Link to={item.url}>
                                     {item.title}
-                                </a>
+                                </Link>
                             </li>
                         )
                     }

@@ -18,7 +18,6 @@ const HomePage = ({onChangePage}) => {
 
     return (
         <>
-            <MenuHeader/>
             <Header title="Pokemon Game" desc="Simple game created with React for React Maraphon" onClickStartGame={onClickStartGame}/>
             <Layout id={2} title="Game description" desc="This is Description!" urlBg={bg1} >
                 <p>In the game two players face off against one another, one side playing as "blue", the other as "red" on a 3x3 grid.</p>
@@ -32,22 +31,6 @@ const HomePage = ({onChangePage}) => {
                     If the player's rank is higher, the opponent's card will be captured and changed into the player's color instead.
                 </p>
             </Layout>
-            <Layout id={4} title="Battlefield" desc="This is Description!" urlBg={bg3} >
-                <div className={s.flex}>
-                    {
-                        pokemonsData.map(item =>
-                            <PokemonCard
-                                key={item.id}
-                                id={item.id}
-                                name={item.name}
-                                img={item.img}
-                                type={item.type}
-                                values={item.values}
-                            />)
-                    }
-                </div>
-            </Layout>
-            <Footer />
         </>
     );
 }
