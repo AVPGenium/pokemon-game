@@ -16,8 +16,8 @@ function Menu({isOpenMenu}) {
             <div className={s.menuItems}>
                 <ul>
                     {
-                        ROUTES.map(item =>
-                            <li>
+                        ROUTES.map((item, index) =>
+                            <li key={index}>
                                 <a href={item.url}>
                                     {item.title}
                                 </a>

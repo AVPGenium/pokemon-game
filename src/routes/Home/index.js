@@ -2,13 +2,14 @@ import Header from "../../components/Header";
 import Layout from "../../components/Layout";
 import Footer from "../../components/Footer";
 import MenuHeader from "../../components/MenuHeader";
-import "./style.module.css"
+import PokemonCard from "../../components/PokemonCard";
 
 import bg1 from "./bg1.jpg"
 import bg3 from "./bg3.jpg"
 
 import pokemonsData from '../../pokemonsData.json';
-import PokemonCard from "../../components/PokemonCard";
+
+import s from "./style.module.css"
 
 const HomePage = ({onChangePage}) => {
     const onClickStartGame = (goToPage) => {
@@ -32,7 +33,7 @@ const HomePage = ({onChangePage}) => {
                 </p>
             </Layout>
             <Layout id={4} title="Battlefield" desc="This is Description!" urlBg={bg3} >
-                <div className="flex">
+                <div className={s.flex}>
                     {
                         pokemonsData.map(item =>
                             <PokemonCard
