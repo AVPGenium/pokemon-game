@@ -1,5 +1,6 @@
 import stl from './style.module.css';
 import classnames from 'classnames';
+import {Link} from "react-router-dom";
 
 const Navbar = ({isOpenMenu, bgActive = false, onToggleMenu}) => {
     const handleClick = () => {
@@ -11,14 +12,14 @@ const Navbar = ({isOpenMenu, bgActive = false, onToggleMenu}) => {
             [stl.bgActive]: bgActive
         })}>
             <div className={stl.navWrapper}>
-                <p className={stl.brand}>
+                <Link className={stl.brand}  to='/'>
                     LOGO
-                </p>
+                </Link>
 
-                <a className={classnames(stl.menuButton, {[stl.active]: isOpenMenu})}
+                <div className={classnames(stl.menuButton, {[stl.active]: isOpenMenu})}
                    onClick={handleClick}>
                     <span />
-                </a>
+                </div>
             </div>
         </nav>
     )

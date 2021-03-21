@@ -1,6 +1,6 @@
 .root {
-    width: 268px;
-    height: 388px;
+    width: 188px;
+    height: 272px;
     margin: 16px;
     perspective: 1000px;
 }
@@ -29,15 +29,24 @@
     transform: rotateY(180deg);
 }
 
-.active {
-    transform: rotateY(0deg);
+.pokemonCard.active {
+    animation: flipFront 1000ms 300ms forwards;
+}
+
+@keyframes flipFront {
+    from {
+        transform: rotateY(180deg);
+    }
+    to {
+        transform: rotateY(0deg);
+    }
 }
 
 .cardFront,
 .cardBack {
     width: 100%;
     height: 100%;
-    border-radius: 24px;
+    border-radius: 17px;
     background: var(--normal);
     position: absolute;
     top: 0;
@@ -73,11 +82,11 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    border: 12px solid #fce756;
+    border: 10px solid #fce756;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 24px;
+    border-radius: 17px;
 }
 
 .wrap.back {
@@ -91,14 +100,14 @@
 
 .cardBack img {
     height: 100%;
-    border-radius: 24px;
+    border-radius: 17px;
 }
 
 .pokemon {
     width: 100%;
     height: 100%;
     background-color: #eee;
-    border-radius: 20px;
+    border-radius: 8px;
     box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
     text-align: center;
     display: flex;
@@ -153,10 +162,10 @@
 .pokemon .imgContainer {
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 50%;
-    width: 140px;
-    height: 140px;
+    width: 90px;
+    height: 90px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
 
 .pokemon .imgContainer img {
@@ -165,7 +174,7 @@
 }
 
 .pokemon .info {
-    margin-top: 20px;
+    margin-top: 14px;
 }
 
 .pokemon .number {
@@ -183,18 +192,18 @@
 .values {
     position: absolute;
     display: block;
-    top: 20px;
-    left: 20px;
-    font-size: 26px;
-    line-height: 26px;
-    width: 78px;
-    height: 78px;
+    top: 14px;
+    left: 14px;
+    font-size: 18px;
+    line-height: 18px;
+    width: 55px;
+    height: 55px;
 }
 
 .count{
     position: absolute;
-    width: 30px;
-    height: 26px;
+    width: 21px;
+    height: 18px;
     text-align: center;
 }
 
@@ -205,12 +214,12 @@
 }
 
 .count.left {
-    top: 26px;
+    top: 18px;
     left: 0;
 }
 
 .count.right {
-    top: 26px;
+    top: 18px;
     right: 0;
 }
 
