@@ -1,15 +1,6 @@
 import Header from "../../components/Header";
 import Layout from "../../components/Layout";
-import Footer from "../../components/Footer";
-import MenuHeader from "../../components/MenuHeader";
-import PokemonCard from "../../components/PokemonCard";
-
 import bg1 from "./bg1.jpg"
-import bg3 from "./bg3.jpg"
-
-import pokemonsData from '../../pokemonsData.json';
-
-import s from "./style.module.css"
 
 const HomePage = ({onChangePage}) => {
     const onClickStartGame = (goToPage) => {

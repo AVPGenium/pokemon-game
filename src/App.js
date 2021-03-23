@@ -1,6 +1,4 @@
 import {useRouteMatch, Route, Switch, Redirect} from 'react-router-dom';
-import {useState} from 'react';
-
 import AboutPage from './routes/About';
 import ContactPage from './routes/Contact';
 import NotFoundPage from './routes/NotFound';
