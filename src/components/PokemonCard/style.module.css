@@ -1,10 +1,3 @@
-.root {
-    width: 188px;
-    height: 272px;
-    margin: 16px;
-    perspective: 1000px;
-}
-
 .pokemonCard {
     --fire: #FDDFDF;
     --grass: #DEFDE0;
@@ -21,8 +14,8 @@
     --fighting: #E6E0D4;
     --normal:#F5F5F5;
 
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100%;
     position: relative;
     transform-style: preserve-3d;
     transition: .6s .1s;
@@ -42,11 +35,15 @@
     }
 }
 
+.pokemonCard.selected {
+    margin-top: -40px;
+}
+
 .cardFront,
 .cardBack {
     width: 100%;
     height: 100%;
-    border-radius: 17px;
+    border-radius: 24px;
     background: var(--normal);
     position: absolute;
     top: 0;
@@ -82,15 +79,19 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    border: 10px solid #fce756;
+    border: 12px solid #fce756;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 17px;
+    border-radius: 24px;
 }
 
 .wrap.back {
     z-index: -1;
+    background-image: url(./card-back-side.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .cardBack {
@@ -100,14 +101,14 @@
 
 .cardBack img {
     height: 100%;
-    border-radius: 17px;
+    border-radius: 24px;
 }
 
 .pokemon {
     width: 100%;
     height: 100%;
     background-color: #eee;
-    border-radius: 8px;
+    border-radius: 20px;
     box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
     text-align: center;
     display: flex;
@@ -162,10 +163,10 @@
 .pokemon .imgContainer {
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 50%;
-    width: 90px;
-    height: 90px;
+    width: 140px;
+    height: 140px;
     text-align: center;
-    margin-bottom: 14px;
+    margin-bottom: 20px;
 }
 
 .pokemon .imgContainer img {
@@ -174,7 +175,7 @@
 }
 
 .pokemon .info {
-    margin-top: 14px;
+    margin-top: 20px;
 }
 
 .pokemon .number {
@@ -192,18 +193,18 @@
 .values {
     position: absolute;
     display: block;
-    top: 14px;
-    left: 14px;
-    font-size: 18px;
-    line-height: 18px;
-    width: 55px;
-    height: 55px;
+    top: 20px;
+    left: 20px;
+    font-size: 26px;
+    line-height: 26px;
+    width: 78px;
+    height: 78px;
 }
 
 .count{
     position: absolute;
-    width: 21px;
-    height: 18px;
+    width: 30px;
+    height: 26px;
     text-align: center;
 }
 
@@ -214,12 +215,12 @@
 }
 
 .count.left {
-    top: 18px;
+    top: 26px;
     left: 0;
 }
 
 .count.right {
-    top: 18px;
+    top: 26px;
     right: 0;
 }
 
@@ -227,4 +228,8 @@
     left: 50%;
     transform: translate(-50%, 0);
     bottom: 0;
+}
+
+.pokemonCard.selected {
+    margin-top: -40px;
 }
