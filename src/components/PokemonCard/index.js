@@ -5,7 +5,7 @@ const PokemonCard = ({name, img, id, type, values,
                          isActiveCard, isSelectedCard, onCardClick,
                          minimize = false, className}) => {
     const onClickCard = () => {
-        onCardClick(id)
+        onCardClick && onCardClick(id)
     }
 
     return (

@@ -4,22 +4,23 @@ import PokemonCard from '../../../../components/PokemonCard';
 import stl from './style.module.css';
 
 const BoardPage = () => {
-    const pokContext = useContext(PokemonContext);
+    const {pokemons} = useContext(PokemonContext);
 
     return (
         <div className={stl.root}>
             <div className={stl.playerOne}>
-                { pokContext.pokemons.map(pok => {
+                { pokemons.map(({id, name, img, type, isSelectedCard, values}) => {
                     return (
-                        <PokemonCard key={pok.id}
-                                     name={pok.name}
-                                     img={pok.img}
-                                     id={pok.id}
-                                     type={pok.type}
-                                     values={pok.values}
-                                     isActiveCard={true}
-                                     minimize={true}
-                                     className={stl.card}/>
+                        <PokemonCard key={id}
+                                     name={name}
+                                     img={img}
+                                     id={id}
+                                     type={type}
+                                     values={values}
+                                     minimize
+                                     isActiveCard
+                                     isSelectedCard={isSelectedCard}
+                        />
                     )
                 })
                 }
