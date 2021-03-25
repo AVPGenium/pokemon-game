@@ -233,4 +233,18 @@
 .pokemonCard.selected {
     margin-top: -20px;
     margin-bottom: 20px;
+    margin-left: 60px;
+    border-radius: 15px;
+    background-color:rgb(245, 142, 142);
+    width: 50%;
+    height: 75%;
+    min-width: 50%;
+}
+
+.red {
+    background-color:rgb(248, 155, 155);
+}
+
+.blue {
+    background-color:rgb(149, 174, 248);
 }

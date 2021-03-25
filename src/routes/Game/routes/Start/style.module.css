@@ -1,120 +1,56 @@
-.start_page {
-    color: black;
-}
-
-.flex {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 40px;
-    justify-content: center;
-    align-items: center;
-}
-
-.btn_wrap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-}
-
-.add_btn,
-.start_btn {
-    margin-top: 10px;
-    margin-bottom: 30px;
-    padding: 12px 24px;
-    background-color: transparent;
-    border-radius: 6px;
-    border: 1px solid #03338dcb;
-    color: #03338dcb;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-.add_btn:hover,
-.start_btn:hover,
-.add_btn:focus,
-.start_btn:focus,
-.add_btn:active,
-.start_btn:active {
-    background-color: #03338dcb;
-    color: #fff;
-}
-
-.cardSize {
-    width: 20vw;
-    max-width: 256px;
-    height: 28vw;
-    max-height: 360px;
-    margin: 10px;
-}
-
 .card {
-    width: 100%;
+    width: 90%;
     height: 380px;
     cursor: pointer;
 }
 
-.container {
-    width: fit-content;
-    position: absolute;
-    right: 0;
-    top: 70%;
-    left: 35%;
-}
-
-.gamepage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    padding: 20px 0;
-}
-
-.gamepage p {
-    margin-bottom: 30px;
-    font-size: 24px;
-    text-align: center;
-    color: black;
-}
-
-.gamepage button {
-    padding: 12px 32px;
-    background-color: transparent;
-    border-radius: 4px;
-    border: 1px solid #000000;
-    color: #000000;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-
-.gamepage button:hover,
-.gamepage button:active,
-.gamepage button:focus {
-    background-color: #000000;
-    color: #ffffff;
-    outline: none;
-}
-
-.btn_wrap {
-    display: flex;;
-    justify-content: center;
+.card:after {
+    content: '';
     width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
 }
 
-.add_btn {
-    margin-top: 10px;
-    margin-bottom: 30px;
-    padding: 12px 24px;
-    background-color: transparent;
-    border-radius: 6px;
-    border: 1px solid #03338dcb;
-    color: #03338dcb;
-    text-transform: uppercase;
-    cursor: pointer;
+.container {
+    width:max-content;
+    position:absolute;
+    right: 0%;
+    top: 18%;
+    left: 45%;
 }
-.add_btn:hover,
-.add_btn:focus,
-.add_btn:active {
-    background-color: #03338dcb;
+
+
+.buttonContainern {
+    width: 250px;
+    height: 70px;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    left: 90%;
+    position: relative;
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #d8d1da;
+    color: rgb(12, 11, 11);
+    padding: 8px 16px;
+    font-size: 16px;
+}
+.buttonContainern:hover {
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #b546d7;
     color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+}
+.flex {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 40px;
 }
