@@ -3,18 +3,31 @@ import {useRouteMatch, Route, Switch, Redirect} from 'react-router-dom';
 import StartPage from './routes/Start';
 import BoardPage from './routes/Board';
 import FinishPage from './routes/Finish';
-import { PokemonContext } from '../../context/pokemonContext';
+import { PokemonContext, Player2Context } from '../../context/pokemonContext';
 
 const GamePage = () => {
-    const [selectedPokemons, setSelectedPokemons] = useState({});
-    const match = useRouteMatch();
+    const [pokemons, setSelectedPokemons] = useState({});
+    const [pokemons2, setSelectedPokemons2] = useState([])
+    const  match  =  useRouteMatch ( '/game' )
+
+    const setPokemonsPlayer2 = (pokemon2) => {
+        setSelectedPokemons2(() => {
+            return [...pokemon2]
+        })
+    }
+    const dischargeContext2 = () => {
+        setSelectedPokemons2([])
+    }
+    const dischargeContext = () => {
+        setSelectedPokemons({});
+
+    }
 
     const handleSelectedPokemons = (key, pokemon) => {
         setSelectedPokemons(prevState => {
             if (prevState[key]) {
                 const copyState = {...prevState};
                 delete copyState[key];
-
                 return copyState;
             }
             return {
@@ -24,10 +37,16 @@ const GamePage = () => {
         })
     }
     return (
+        <Player2Context.Provider value={{
+            pokemons2: pokemons2,
+            setPokemonsPlayer2: setPokemonsPlayer2,
+            dischargeContext2:dischargeContext2,
+        }} >
         <PokemonContext.Provider value={
             {
-                pokemons: selectedPokemons,
-                onSelectedPokemons: handleSelectedPokemons
+                pokemons: pokemons,
+                onSelectedPokemons: handleSelectedPokemons,
+                dischargeContext: dischargeContext
             }
         }>
             <Switch>
@@ -37,6 +56,7 @@ const GamePage = () => {
                 <Route render={() => <Redirect to='/404'/>}/>
             </Switch>
         </PokemonContext.Provider>
+        </Player2Context.Provider>
     );
 }
 

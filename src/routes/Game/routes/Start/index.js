@@ -3,6 +3,7 @@ import {useHistory, useRouteMatch} from 'react-router-dom';
 import Layout from '../../../../components/Layout';
 import PokemonCard from '../../../../components/PokemonCard';
 import stl from './style.module.css';
+import cn from 'classnames'
 import layoutBg from '../../bg3.jpg';
 import { PokemonContext } from '../../../../context/pokemonContext';
 import { FireBaseContext } from '../../../../context/fireBaseContext';
@@ -41,8 +42,9 @@ const StartPage = () => {
 
     return (
         <>
-            <div className={stl.btn_wrap}>
+            <div className={stl.flex}>
                 <button onClick={handleStartGameClick}
+                        className={cn(stl.buttonContainern, stl.container)}
                 disabled={Object.keys(pokemonsContext.pokemons).length < 5}>
                     Start Game
                 </button>
@@ -56,13 +58,15 @@ const StartPage = () => {
                                  id={value.id}
                                  type={value.type}
                                  values={value.values}
-                                 isActiveCard={true}
-                                 isSelectedCard={value.isSelectedCard}
+                                 isActive={true}
+                                 uuid={key}
+                                 isSelected={value.isSelected}
                                  onCardClick={() => {
-                                     if (Object.keys(pokemonsContext.pokemons).length < 5 || value.isSelectedCard) {
+                                     if (Object.keys(pokemonsContext.pokemons).length < 5 || value.isSelected) {
                                          handleChangeSelected(key);
                                      }
                                  }}
+                                 minimize={false}
                                  className={stl.card} />)
                 }
             </div>
