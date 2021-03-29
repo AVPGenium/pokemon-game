@@ -10,7 +10,7 @@ import MenuHeader from "./components/MenuHeader";
 import classnames from "classnames";
 import stl from './App.module.css'
 import {FireBaseContext} from "./context/fireBaseContext";
-import Firebase from "./service/firebase";
+import FireBaseClass from "./service/firebase";
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
 
     // const match = useRouteMatch('/');
     return (
-        <FireBaseContext.Provider value={new Firebase()}>
+        <FireBaseContext.Provider value={FireBaseClass}>
             <Switch>
                 <Route path='/404' component={NotFoundPage}/>
 

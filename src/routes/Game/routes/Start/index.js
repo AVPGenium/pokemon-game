@@ -4,26 +4,36 @@ import Layout from '../../../../components/Layout';
 import PokemonCard from '../../../../components/PokemonCard';
 import stl from './style.module.css';
 import cn from 'classnames'
+import { useDispatch, useSelector } from 'react-redux';
+import { selectPokemonsdata, selectPokemonsLoding, getPokemonsAsync } from '../../../../store/pokemon';
 import layoutBg from '../../bg3.jpg';
 import { PokemonContext } from '../../../../context/pokemonContext';
 import { FireBaseContext } from '../../../../context/fireBaseContext';
 
 const StartPage = () => {
-    const firebase = useContext(FireBaseContext)
     const pokemonsContext = useContext(PokemonContext);
+    const history = useHistory();
+    const isLoding = useSelector(selectPokemonsLoding);
+    const pokemonsRedux = useSelector(selectPokemonsdata);
+    const dispatch = useDispatch();
+
+    console.log('####: pokemonsRedux', pokemonsRedux);
+
     const [pokemons, setPokemons] = useState({})
 
     useEffect(() => {
-        firebase.getPokemonSocket((pokemons) => {
-            setPokemons(pokemons);
-        });
-        return () => firebase.ofPokemonSocket();
+        dispatch(getPokemonsAsync());
+        pokemonsContext.dischargeContext();
     }, []);
+
+    useEffect(() => {
+        setPokemons(pokemonsRedux);
+    }, [pokemonsRedux]);
 
     const handleChangeSelected = (key) => {
         const pokemon = {...pokemons[key]};
-        pokemonsContext.onSelectedPokemons(key, pokemon);
 
+        pokemonsContext.onSelectedPokemons(key, pokemon);
         setPokemons(prevState => ({
             ...prevState,
             [key]: {
@@ -31,14 +41,14 @@ const StartPage = () => {
                 selected: !prevState[key].selected
             }
         }))
+
     }
-
-
-    const history = useHistory();
 
     const handleStartGameClick = () => {
         history.push('/game/board')
     }
+
+    const playerOneLengthState = Object.keys(pokemonsContext.pokemons).length;
 
     return (
         <>
@@ -46,7 +56,7 @@ const StartPage = () => {
                 <button onClick={handleStartGameClick}
                         className={cn(stl.buttonContainern, stl.container)}
                 disabled={Object.keys(pokemonsContext.pokemons).length < 5}>
-                    Start Game
+                    {playerOneLengthState < 5 ? `Chose ${5 - playerOneLengthState} pokemons!` : `Let's play!`}
                 </button>
             </div>
 
